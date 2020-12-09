@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import {HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DEFAULT_CONFIG, NgForageOptions, NgForageConfig, Driver} from 'ngforage';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,18 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: DEFAULT_CONFIG,
+      useValue: {
+        name: 'randomfacts-ng',
+        driver: [ 
+          Driver.INDEXED_DB,
+          Driver.LOCAL_STORAGE
+        ]
+      } as NgForageOptions
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
