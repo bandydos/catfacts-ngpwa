@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "randomcatfacts-ng": {
+      "hosting": {
+        "randomfacts-ng": [
+          "randomcatfacts-ng"
+        ]
+      }
+    }
+  }
+}
