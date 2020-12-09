@@ -1,13 +1,14 @@
 # Random facts
-***Mobile application for fetching random facts from Wikipedia API (with Angular).***
+***Mobile application for fetching random facts from cat facts API (with Angular).***
+
+***PWA***
 
 ---
 ## TODO
-* [ ] initialize
-* [ ] create basic layout
-* [ ] fetch data from Wikipedia API (Angular HTTP)
-* [ ] display in table
-* [ ] make detail view
+* [X] initialize
+* [X] create basic layout
+* [X] fetch data from cat facts API
+* [X] display in table
+* [X] make detail view
 * [ ] make installable
 * [ ] save setting (ngForage)
-# catfacts-ngpwa
