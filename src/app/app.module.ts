@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { FactdetailComponent } from './components/factdetail/factdetail.component';
 import { HomeComponent } from './components/home/home.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     NgbModule,
     RouterModule,
     HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
