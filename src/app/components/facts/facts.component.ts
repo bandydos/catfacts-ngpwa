@@ -17,17 +17,17 @@ export class FactsComponent implements OnInit {
     private readonly ngf: NgForage) { }
 
   ngOnInit(): void {
-    this.factService.getFacts().subscribe(response => {
-      this.facts = response.data;
+    this.factService.getFacts().subscribe(response => { // Subscribe to observable from service.
+      this.facts = response.data; // Fill facts.
       for (let i = 0; i < this.facts.length; i++) {
-        this.ngf.setItem<string>(`Fact ${i + 1}`, this.facts[i].fact);
+        this.ngf.setItem<string>(`Fact ${i + 1}`, this.facts[i].fact); // Set ngForage items.
       }
     });
   }
 
   onDetail(i: number, f: FactModel): void {
-    f.id = i;
-    this.router.navigate(['/factdetail', f.id]);
+    f.id = i; // Assign id.
+    this.router.navigate(['/factdetail', f.id]); // Navigate to detail route + /id.
   }
 
   onRefresh(): void {

@@ -8,7 +8,7 @@ import { RequestModel } from '../models/RequestModel';
 })
 
 export class FactService {
-  factsUrl = 'https://catfact.ninja/facts?limit=3&max_length=1000';
+  factsUrl = 'https://catfact.ninja/facts?limit=3&max_length=1000'; // API URL.
   facts: RequestModel;
 
   constructor(private http: HttpClient) { }
@@ -16,12 +16,12 @@ export class FactService {
   getFacts(): Observable<RequestModel> {
     return new Observable(observer => {
       if (this.facts) {
-        observer.next(this.facts);
-        return observer.complete();
+        observer.next(this.facts); // No refetch.
+        return observer.complete(); 
       }
       this.http
-        .get(this.factsUrl).subscribe((fs: RequestModel) => {
-          this.facts = fs;
+        .get(this.factsUrl).subscribe((facts: RequestModel) => {
+          this.facts = facts; // Fill facts fitch fetched data.
           observer.next(this.facts);
           observer.complete();
         });

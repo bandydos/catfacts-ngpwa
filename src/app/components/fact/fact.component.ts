@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fact',
@@ -7,6 +6,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./fact.component.css']
 })
 export class FactComponent implements OnInit {
+  // Get data via input.
   @Input() fact: string;
   @Input() length: number;
   @Input() listindex: number;
